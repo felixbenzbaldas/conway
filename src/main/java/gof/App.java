@@ -55,13 +55,7 @@ public class App {
 	}
 	
 	private boolean wasAlive(Point point) {
-		if (asList != null) {
-			return asList.contains(point);
-		}
-		if (point.equals(new Point(1,1))) {
-			return board.charAt(4) == 'X'; 
-		}
-		return false;
+		return asList.contains(point);
 	}
 	
 	private int getNumberOfLivingNeighbours() {
