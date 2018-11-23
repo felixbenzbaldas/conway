@@ -23,11 +23,11 @@ public class App {
 	}
 	
 	private boolean wasAlive() {
-		return wasAlive(1,1); 
+		return wasAlive(new Point(1, 1)); 
 	}
 	
-	private boolean wasAlive(int x, int y) {
-		if (x == 1 && y == 1) {
+	private boolean wasAlive(Point p) {
+		if (p.equals(new Point(1,1))) {
 			return board.charAt(4) == 'X'; 
 		}
 		return false;
