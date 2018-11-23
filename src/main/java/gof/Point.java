@@ -1,8 +1,8 @@
 package gof;
 
 public class Point {
-	int x;
-	int y;
+	final int x;
+	final int y;
 	public Point(int x, int y) {
 		super();
 		this.x = x;

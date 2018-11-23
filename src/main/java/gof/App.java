@@ -6,11 +6,11 @@ public class App {
 	
 	public String calculate(String board) {
 		this.board = board;
-		return willBeAlive(1,1) ? "X":"0";
+		return willBeAlive(new Point(1,1)) ? "X":"0";
 	}
 	
-	private boolean willBeAlive(int x, int y) {
-		if (wasAlive()) {
+	private boolean willBeAlive(Point point) {
+		if (wasAlive(point)) {
 			if (getNumberOfLivingNeighbours() == 2 || getNumberOfLivingNeighbours() == 3) {
 				return true;
 			}
@@ -22,12 +22,8 @@ public class App {
 		return false;
 	}
 	
-	private boolean wasAlive() {
-		return wasAlive(new Point(1, 1)); 
-	}
-	
-	private boolean wasAlive(Point p) {
-		if (p.equals(new Point(1,1))) {
+	private boolean wasAlive(Point point) {
+		if (point.equals(new Point(1,1))) {
 			return board.charAt(4) == 'X'; 
 		}
 		return false;
