@@ -26,12 +26,13 @@ public class TestApp {
 		if (board.equals("0X0XXX0X0")) {
 			return "0";
 		}
-		if (board.replace("0", "").length() > 2) {
+		if (getNumberOfLivingNeighbours(board) > 1) {
 			return "X";
 		}
 		return "0";
 	}
 	
-	
-	
+	private int getNumberOfLivingNeighbours(String board) {
+		return board.replace("0", "").length() - 1;
+	}
 }
