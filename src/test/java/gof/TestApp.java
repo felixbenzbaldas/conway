@@ -19,7 +19,7 @@ public class TestApp {
 
 		Set<Point> livingCells = new HashSet<Point>();
 		livingCells.add(new Point(1, 1));
-		assertEquals(new HashSet<Point>(), new App().calculate("0000X0000", livingCells));
+		assertEquals(new HashSet<Point>(), new App().calculate(livingCells));
 	}
 	
 	@Test
@@ -29,7 +29,7 @@ public class TestApp {
 		livingCells.add(new Point(1, 1));
 		livingCells.add(new Point(1, 2));
 		
-		assertEquals(boardWithLivingCell, new App().calculate("000XXX000", livingCells));
+		assertEquals(boardWithLivingCell, new App().calculate(livingCells));
 	}
 	
 	@Test
@@ -41,7 +41,7 @@ public class TestApp {
 		livingCells.add(new Point(1, 2));
 		livingCells.add(new Point(2, 1));
 		
-		assertEquals(new HashSet<Point>(), new App().calculate("0X0XXX0X0", livingCells));
+		assertEquals(new HashSet<Point>(), new App().calculate(livingCells));
 	}
 	
 	
@@ -52,7 +52,7 @@ public class TestApp {
 		livingCells.add(new Point(1, 0));
 		livingCells.add(new Point(1, 2));
 		
-		assertEquals(boardWithLivingCell, new App().calculate("0X0X0X000", livingCells));
+		assertEquals(boardWithLivingCell, new App().calculate(livingCells));
 	}
 	
 }
