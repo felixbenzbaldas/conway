@@ -43,11 +43,11 @@ public class App {
 	
 	private boolean willBeAlive(Point point) {
 		if (wasAlive(point)) {
-			if (getNumberOfLivingNeighbours() == 2 || getNumberOfLivingNeighbours() == 3) {
+			if (getNumberOfLivingNeighbours(point) == 2 || getNumberOfLivingNeighbours(point) == 3) {
 				return true;
 			}
 		} else {
-			if (getNumberOfLivingNeighbours() == 3) {
+			if (getNumberOfLivingNeighbours(point) == 3) {
 				return true;
 			}
 		}
@@ -58,11 +58,21 @@ public class App {
 		return asList.contains(point);
 	}
 	
-	private int getNumberOfLivingNeighbours() {
-		return getNeighbours().replaceAll("0", "").length();
+	private int getNumberOfLivingNeighbours(Point point) {
+		return getNeighbours(point).replaceAll("0", "").length();
 	}
 	
-	private String getNeighbours() {
+	private String getNeighbours(Point point) {
+		Set<Point> neighbours = new HashSet<Point>();
+		neighbours.add(new Point(point.x - 1, point.y - 1));
+		neighbours.add(new Point(point.x - 1, point.y    ));
+		neighbours.add(new Point(point.x - 1, point.y + 1));
+		neighbours.add(new Point(point.x, point.y - 1));
+		neighbours.add(new Point(point.x, point.y + 1));
+		neighbours.add(new Point(point.x + 1, point.y - 1));
+		neighbours.add(new Point(point.x + 1, point.y    ));
+		neighbours.add(new Point(point.x + 1, point.y + 1));
+		
 		return board.substring(0, 4) + board.substring(5, 9);
 	}
 }
