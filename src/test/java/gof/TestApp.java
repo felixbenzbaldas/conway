@@ -23,7 +23,7 @@ public class TestApp {
 	}
 	
 	private String calculate(String board) {
-		if (board.equals("0X0XXX0X0")) {
+		if (getNumberOfLivingNeighbours(board) > 3) {
 			return "0";
 		}
 		if (board.charAt(4) == 'X') {
