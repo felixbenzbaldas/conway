@@ -1,6 +1,7 @@
 package gof;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,10 +17,9 @@ public class TestApp {
 	
 	@Test
 	public void underpopulation() throws Exception {
-
 		Set<Point> livingCells = new HashSet<Point>();
 		livingCells.add(new Point(1, 1));
-		assertEquals(new HashSet<Point>(), new App().calculate(livingCells));
+		assertTrue(!new App().calculate(livingCells).contains(new Point(1,1)));
 	}
 	
 	@Test
