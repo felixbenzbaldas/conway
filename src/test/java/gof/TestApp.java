@@ -18,7 +18,8 @@ public class TestApp {
 	
 	@Test
 	public void underpopulation() throws Exception {
-		assertEquals(new HashSet<Point>(), new App().calculate("0000X0000"));
+		
+		assertEquals(new HashSet<Point>(), new App().calculate("0000X0000", boardWithLivingCell));
 	}
 	
 	@Test

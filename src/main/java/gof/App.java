@@ -6,6 +6,20 @@ import java.util.Set;
 public class App {
 
 	private String board;
+	private Set<Point> asList;
+	
+	
+	public Set<Point> calculate(String board, Set<Point> asList) {
+		this.board = board;
+		this.asList = asList;
+		Set<Point> newBoard = new HashSet<Point>();
+		for (Point point: getSetOfPossibleLivingCells()) {
+			if (willBeAlive(new Point(1,1))) { // XXX
+				newBoard.add(new Point(1, 1));
+			}
+		}
+		return newBoard;
+	}
 	
 	public Set<Point> calculate(String board) {
 		this.board = board;
@@ -17,7 +31,6 @@ public class App {
 		}
 		return newBoard;
 	}
-	
 	private Set<Point> getSetOfPossibleLivingCells() {
 		Set<Point> set = new HashSet<Point>();
 		for (int row = 0; row < 50; row++) {
@@ -42,6 +55,9 @@ public class App {
 	}
 	
 	private boolean wasAlive(Point point) {
+		if (asList != null) {
+			return asList.contains(point);
+		}
 		if (point.equals(new Point(1,1))) {
 			return board.charAt(4) == 'X'; 
 		}
