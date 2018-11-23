@@ -49,7 +49,14 @@ public class TestApp {
 	}
 	
 	private boolean wasAlive() {
-		return board.charAt(4) == 'X'; 
+		return wasAlive(1,1); 
+	}
+	
+	private boolean wasAlive(int x, int y) {
+		if (x == 1 && y == 1) {
+			return board.charAt(4) == 'X'; 
+		}
+		return false;
 	}
 	
 	private int getNumberOfLivingNeighbours() {
