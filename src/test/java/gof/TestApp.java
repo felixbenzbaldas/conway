@@ -26,8 +26,14 @@ public class TestApp {
 		if (board.equals("0X0XXX0X0")) {
 			return "0";
 		}
-		if (getNumberOfLivingNeighbours(board) > 1) {
-			return "X";
+		if (board.charAt(4) == 'X') {
+			if (getNumberOfLivingNeighbours(board) > 1) {
+				return "X";
+			}
+		} else {
+			if (getNumberOfLivingNeighbours(board) > 2) {
+				return "X";
+			}
 		}
 		return "0";
 	}
