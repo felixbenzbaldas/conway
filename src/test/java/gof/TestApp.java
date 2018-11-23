@@ -16,12 +16,20 @@ public class TestApp {
 	
 	@Test
 	public void underpopulation() throws Exception {
-		assertEquals(new HashSet<Point>(), new App().calculate("0000X0000", boardWithLivingCell));
+
+		Set<Point> livingCells = new HashSet<Point>();
+		livingCells.add(new Point(1, 1));
+		assertEquals(new HashSet<Point>(), new App().calculate("0000X0000", livingCells));
 	}
 	
 	@Test
 	public void survive() throws Exception {
-		assertEquals(boardWithLivingCell, new App().calculate("000XXX000"));
+		Set<Point> livingCells = new HashSet<Point>();
+		livingCells.add(new Point(1, 0));
+		livingCells.add(new Point(1, 1));
+		livingCells.add(new Point(1, 2));
+		
+		assertEquals(boardWithLivingCell, new App().calculate("000XXX000", livingCells));
 	}
 	
 	@Test
