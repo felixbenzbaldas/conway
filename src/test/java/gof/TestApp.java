@@ -8,8 +8,6 @@ import java.util.Set;
 import org.junit.Test;
 
 public class TestApp {
-	
-
 
 	static Set<Point> boardWithLivingCell = new HashSet<Point>();
 	static {
@@ -18,7 +16,6 @@ public class TestApp {
 	
 	@Test
 	public void underpopulation() throws Exception {
-		
 		assertEquals(new HashSet<Point>(), new App().calculate("0000X0000", boardWithLivingCell));
 	}
 	

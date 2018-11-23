@@ -1,13 +1,16 @@
 package gof;
 
 public class Point {
+	
 	final int x;
 	final int y;
+	
 	public Point(int x, int y) {
 		super();
 		this.x = x;
 		this.y = y;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -16,6 +19,7 @@ public class Point {
 		result = prime * result + y;
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -31,5 +35,4 @@ public class Point {
 			return false;
 		return true;
 	}
-	
 }

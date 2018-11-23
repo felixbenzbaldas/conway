@@ -8,7 +8,6 @@ public class App {
 	private String board;
 	private Set<Point> asList;
 	
-	
 	public Set<Point> calculate(String board, Set<Point> asList) {
 		this.board = board;
 		this.asList = asList;
@@ -31,6 +30,7 @@ public class App {
 		}
 		return newBoard;
 	}
+	
 	private Set<Point> getSetOfPossibleLivingCells() {
 		Set<Point> set = new HashSet<Point>();
 		for (int row = 0; row < 50; row++) {
