@@ -32,10 +32,10 @@ public class TestApp {
 	
 	private String calculate(String board) {
 		this.board = board;
-		return willBeAlive() ? "X":"0";
+		return willBeAlive(1,1) ? "X":"0";
 	}
 	
-	private boolean willBeAlive() {
+	private boolean willBeAlive(int x, int y) {
 		if (wasAlive()) {
 			if (getNumberOfLivingNeighbours() == 2 || getNumberOfLivingNeighbours() == 3) {
 				return true;
