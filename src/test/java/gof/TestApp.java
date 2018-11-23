@@ -36,11 +36,8 @@ public class TestApp {
 	}
 	
 	private boolean willBeAlive() {
-		if (getNumberOfLivingNeighbours() > 3) {
-			return false;
-		}
 		if (wasAlive()) {
-			if (getNumberOfLivingNeighbours() > 1) {
+			if (getNumberOfLivingNeighbours() > 1 && getNumberOfLivingNeighbours() < 4) {
 				return true;
 			}
 		} else {
