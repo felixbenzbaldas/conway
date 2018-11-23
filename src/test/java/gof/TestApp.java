@@ -28,35 +28,38 @@ public class TestApp {
 		assertEquals("X", calculate("0X0X0X000"));
 	}
 	
+	private String board;
+	
 	private String calculate(String board) {
-		return willBeAlive(board) ? "X":"0";
+		this.board = board;
+		return willBeAlive() ? "X":"0";
 	}
 	
-	private boolean willBeAlive(String board) {
-		if (getNumberOfLivingNeighbours(board) > 3) {
+	private boolean willBeAlive() {
+		if (getNumberOfLivingNeighbours() > 3) {
 			return false;
 		}
-		if (wasAlive(board)) {
-			if (getNumberOfLivingNeighbours(board) > 1) {
+		if (wasAlive()) {
+			if (getNumberOfLivingNeighbours() > 1) {
 				return true;
 			}
 		} else {
-			if (getNumberOfLivingNeighbours(board) == 3) {
+			if (getNumberOfLivingNeighbours() == 3) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	private boolean wasAlive(String board) {
+	private boolean wasAlive() {
 		return board.charAt(4) == 'X'; 
 	}
 	
-	private int getNumberOfLivingNeighbours(String board) {
-		return getNeighbours(board).replaceAll("0", "").length();
+	private int getNumberOfLivingNeighbours() {
+		return getNeighbours().replaceAll("0", "").length();
 	}
 	
-	private String getNeighbours(String board) {
+	private String getNeighbours() {
 		return board.substring(0, 4) + board.substring(5, 9);
 	}
 }
