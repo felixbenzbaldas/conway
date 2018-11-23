@@ -36,7 +36,7 @@ public class TestApp {
 		if (getNumberOfLivingNeighbours(board) > 3) {
 			return false;
 		}
-		if (board.charAt(4) == 'X') {
+		if (wasAlive(board)) {
 			if (getNumberOfLivingNeighbours(board) > 1) {
 				return true;
 			}
@@ -46,6 +46,10 @@ public class TestApp {
 			}
 		}
 		return false;
+	}
+	
+	private boolean wasAlive(String board) {
+		return board.charAt(4) == 'X'; 
 	}
 	
 	private int getNumberOfLivingNeighbours(String board) {
