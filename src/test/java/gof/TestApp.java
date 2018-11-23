@@ -29,19 +29,23 @@ public class TestApp {
 	}
 	
 	private String calculate(String board) {
+		return willBeAlive(board) ? "X":"0";
+	}
+	
+	private boolean willBeAlive(String board) {
 		if (getNumberOfLivingNeighbours(board) > 3) {
-			return "0";
+			return false;
 		}
 		if (board.charAt(4) == 'X') {
 			if (getNumberOfLivingNeighbours(board) > 1) {
-				return "X";
+				return true;
 			}
 		} else {
 			if (getNumberOfLivingNeighbours(board) == 3) {
-				return "X";
+				return true;
 			}
 		}
-		return "0";
+		return false;
 	}
 	
 	private int getNumberOfLivingNeighbours(String board) {
