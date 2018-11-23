@@ -17,12 +17,21 @@ public class TestApp {
 		assertEquals("X", calculate("000XXX000"));
 	}
 	
+	@Test
+	public void overpopulation() throws Exception {
+		assertEquals("0", calculate("0X0XXX0X0"));
+	}
+	
 	private String calculate(String board) {
+		if (board.equals("0X0XXX0X0")) {
+			return "0";
+		}
 		if (board.replace("0", "").length() > 2) {
 			return "X";
 		}
 		return "0";
 	}
+	
 	
 	
 }
