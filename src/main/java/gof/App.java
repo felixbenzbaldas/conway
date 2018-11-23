@@ -59,10 +59,16 @@ public class App {
 	}
 	
 	private int getNumberOfLivingNeighbours(Point point) {
-		return getNeighbours(point).replaceAll("0", "").length();
+		int sum = 0;
+		for (Point currentPoint: getNeighbours(point)) {
+			if (wasAlive(currentPoint)) {
+				sum++;
+			}
+		}
+		return sum;
 	}
 	
-	private String getNeighbours(Point point) {
+	private Set<Point> getNeighbours(Point point) {
 		Set<Point> neighbours = new HashSet<Point>();
 		neighbours.add(new Point(point.x - 1, point.y - 1));
 		neighbours.add(new Point(point.x - 1, point.y    ));
@@ -72,7 +78,6 @@ public class App {
 		neighbours.add(new Point(point.x + 1, point.y - 1));
 		neighbours.add(new Point(point.x + 1, point.y    ));
 		neighbours.add(new Point(point.x + 1, point.y + 1));
-		
-		return board.substring(0, 4) + board.substring(5, 9);
+		return neighbours;
 	}
 }
