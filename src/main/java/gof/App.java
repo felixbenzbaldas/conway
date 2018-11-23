@@ -1,12 +1,24 @@
 package gof;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class App {
 
 	private String board;
 	
 	public String calculate(String board) {
 		this.board = board;
-		return willBeAlive(new Point(1,1)) ? "X":"0";
+		Set<Point> newBoard = new HashSet<Point>();
+		for (int row = 0; row < 50; row++) {
+			for (int column = 0; column < 50; column++) {
+				if (willBeAlive(new Point(1,1))) { // XXX
+					newBoard.add(new Point(1, 1));
+				}
+				
+			}
+		}
+		return newBoard.contains(new Point(1,1)) ? "X":"0";
 	}
 	
 	private boolean willBeAlive(Point point) {
