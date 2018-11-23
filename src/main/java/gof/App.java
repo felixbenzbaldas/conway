@@ -10,14 +10,22 @@ public class App {
 	public Set<Point> calculate(String board) {
 		this.board = board;
 		Set<Point> newBoard = new HashSet<Point>();
-		for (int row = 0; row < 50; row++) {
-			for (int column = 0; column < 50; column++) {
-				if (willBeAlive(new Point(1,1))) { // XXX
-					newBoard.add(new Point(1, 1));
-				}
+		for (Point point: getSetOfPossibleLivingCells()) {
+			if (willBeAlive(new Point(1,1))) { // XXX
+				newBoard.add(new Point(1, 1));
 			}
 		}
 		return newBoard;
+	}
+	
+	private Set<Point> getSetOfPossibleLivingCells() {
+		Set<Point> set = new HashSet<Point>();
+		for (int row = 0; row < 50; row++) {
+			for (int column = 0; column < 50; column++) {
+				set.add(new Point(row, column));
+			}
+		}
+		return set;
 	}
 	
 	private boolean willBeAlive(Point point) {
