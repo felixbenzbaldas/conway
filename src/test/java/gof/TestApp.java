@@ -33,6 +33,10 @@ public class TestApp {
 	}
 	
 	private int getNumberOfLivingNeighbours(String board) {
-		return board.replace("0", "").length() - 1;
+		return getNeighbours(board).replaceAll("0", "").length();
+	}
+	
+	private String getNeighbours(String board) {
+		return board.substring(0, 4) + board.substring(5, 9);
 	}
 }
