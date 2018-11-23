@@ -7,7 +7,7 @@ public class App {
 
 	private String board;
 	
-	public String calculate(String board) {
+	public Set<Point> calculate(String board) {
 		this.board = board;
 		Set<Point> newBoard = new HashSet<Point>();
 		for (int row = 0; row < 50; row++) {
@@ -15,10 +15,9 @@ public class App {
 				if (willBeAlive(new Point(1,1))) { // XXX
 					newBoard.add(new Point(1, 1));
 				}
-				
 			}
 		}
-		return newBoard.contains(new Point(1,1)) ? "X":"0";
+		return newBoard;
 	}
 	
 	private boolean willBeAlive(Point point) {
