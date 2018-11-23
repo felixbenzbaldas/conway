@@ -22,6 +22,12 @@ public class TestApp {
 		assertEquals("0", calculate("0X0XXX0X0"));
 	}
 	
+	
+	@Test
+	public void birth() throws Exception {
+		assertEquals("X", calculate("0X0X0X000"));
+	}
+	
 	private String calculate(String board) {
 		if (getNumberOfLivingNeighbours(board) > 3) {
 			return "0";
@@ -31,7 +37,7 @@ public class TestApp {
 				return "X";
 			}
 		} else {
-			if (getNumberOfLivingNeighbours(board) > 2) {
+			if (getNumberOfLivingNeighbours(board) == 3) {
 				return "X";
 			}
 		}
