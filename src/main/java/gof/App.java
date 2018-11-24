@@ -5,10 +5,10 @@ import java.util.Set;
 
 public class App {
 
-	private Set<Point> asList;
+	private Set<Point> livingCells;
 	
-	public Set<Point> calculate(Set<Point> asList) {
-		this.asList = asList;
+	public Set<Point> calculate(Set<Point> livingCells) {
+		this.livingCells = livingCells;
 		Set<Point> newBoard = new HashSet<Point>();
 		for (Point point: getSetOfPossibleLivingCells()) {
 			if (willBeAlive(new Point(1,1))) { // XXX
@@ -41,7 +41,7 @@ public class App {
 	}
 	
 	private boolean wasAlive(Point point) {
-		return asList.contains(point);
+		return livingCells.contains(point);
 	}
 	
 	private int getNumberOfLivingNeighbours(Point point) {
