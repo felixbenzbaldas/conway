@@ -9,15 +9,15 @@ public class App {
 	
 	public Set<Point> calculate(Set<Point> livingCells) {
 		this.livingCells = livingCells;
-		Set<Point> newBoard = new HashSet<Point>();
-		for (Point point: getSetOfPossibleLivingCells()) {
+		Set<Point> livingCells_nextGeneration = new HashSet<Point>();
+		for (Point point: getSetOfPossibleLivingCells_nextGeneration()) {
 			if (willBeAlive(new Point(1,1))) { // XXX
-				newBoard.add(new Point(1, 1));
+				livingCells_nextGeneration.add(new Point(1, 1));
 			}
 		}
-		return newBoard;
+		return livingCells_nextGeneration;
 	}
-	private Set<Point> getSetOfPossibleLivingCells() {
+	private Set<Point> getSetOfPossibleLivingCells_nextGeneration() {
 		Set<Point> set = new HashSet<Point>();
 		for (int row = 0; row < 50; row++) {
 			for (int column = 0; column < 50; column++) {
@@ -28,7 +28,7 @@ public class App {
 	}
 	
 	private boolean willBeAlive(Point point) {
-		if (wasAlive(point)) {
+		if (isAlive(point)) {
 			if (getNumberOfLivingNeighbours(point) == 2 || getNumberOfLivingNeighbours(point) == 3) {
 				return true;
 			}
@@ -40,14 +40,14 @@ public class App {
 		return false;
 	}
 	
-	private boolean wasAlive(Point point) {
+	private boolean isAlive(Point point) {
 		return livingCells.contains(point);
 	}
 	
 	private int getNumberOfLivingNeighbours(Point point) {
 		int sum = 0;
 		for (Point currentNeighbour: getNeighbours(point)) {
-			if (wasAlive(currentNeighbour)) {
+			if (isAlive(currentNeighbour)) {
 				sum++;
 			}
 		}
