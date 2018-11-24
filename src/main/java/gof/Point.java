@@ -1,5 +1,8 @@
 package gof;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Point {
 	
 	final int x;
@@ -9,6 +12,19 @@ public class Point {
 		super();
 		this.x = x;
 		this.y = y;
+	}
+
+	public Set<Point> getNeighbours() {
+		Set<Point> neighbours = new HashSet<Point>();
+		neighbours.add(new Point(x - 1, y - 1));
+		neighbours.add(new Point(x - 1, y    ));
+		neighbours.add(new Point(x - 1, y + 1));
+		neighbours.add(new Point(x, y - 1));
+		neighbours.add(new Point(x, y + 1));
+		neighbours.add(new Point(x + 1, y - 1));
+		neighbours.add(new Point(x + 1, y    ));
+		neighbours.add(new Point(x + 1, y + 1));
+		return neighbours;
 	}
 	
 	@Override
