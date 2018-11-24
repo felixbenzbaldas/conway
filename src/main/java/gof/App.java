@@ -19,10 +19,8 @@ public class App {
 	}
 	private Set<Point> getSetOfPossibleLivingCells_nextGeneration() {
 		Set<Point> set = new HashSet<Point>();
-		for (int row = 0; row < 50; row++) {
-			for (int column = 0; column < 50; column++) {
-				set.add(new Point(row, column));
-			}
+		for (Point point : livingCells) {
+			set.addAll(point.getNeighbours());
 		}
 		return set;
 	}
