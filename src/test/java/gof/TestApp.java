@@ -33,9 +33,9 @@ public class TestApp {
 		livingCells.add(new Point(1, 2));
 
 		Set<Point> livingCells_nextGeneration = new HashSet<Point>();
-//		livingCells_nextGeneration.add(new Point(0, 1));
+		livingCells_nextGeneration.add(new Point(0, 1));
 		livingCells_nextGeneration.add(new Point(1, 1));
-//		livingCells_nextGeneration.add(new Point(2, 1));
+		livingCells_nextGeneration.add(new Point(2, 1));
 		
 		assertEquals(livingCells_nextGeneration, new App().calculate(livingCells));
 	}

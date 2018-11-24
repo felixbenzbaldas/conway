@@ -11,8 +11,8 @@ public class App {
 		this.livingCells = livingCells;
 		Set<Point> livingCells_nextGeneration = new HashSet<Point>();
 		for (Point point: getSetOfPossibleLivingCells_nextGeneration()) {
-			if (willBeAlive(new Point(1,1))) { // XXX
-				livingCells_nextGeneration.add(new Point(1, 1));
+			if (willBeAlive(point)) {
+				livingCells_nextGeneration.add(point);
 			}
 		}
 		return livingCells_nextGeneration;
