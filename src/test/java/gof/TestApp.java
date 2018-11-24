@@ -1,6 +1,7 @@
 package gof;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.HashSet;
@@ -44,7 +45,7 @@ public class TestApp {
 		livingCells.add(new Point(1, 2));
 		livingCells.add(new Point(2, 1));
 		
-		assertTrue(!new App().calculate(livingCells).contains(new Point(1,1)));
+		assertFalse(new App().calculate(livingCells).contains(new Point(1,1)));
 	}
 	
 	
