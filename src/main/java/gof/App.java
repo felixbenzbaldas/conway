@@ -26,12 +26,13 @@ public class App {
 	}
 	
 	private boolean willBeAlive(Point point) {
+		int numberOfLivingNeighbours = getNumberOfLivingNeighbours(point);
 		if (isAlive(point)) {
-			if (getNumberOfLivingNeighbours(point) == 2 || getNumberOfLivingNeighbours(point) == 3) {
+			if (numberOfLivingNeighbours == 2 || numberOfLivingNeighbours == 3) {
 				return true;
 			}
 		} else {
-			if (getNumberOfLivingNeighbours(point) == 3) {
+			if (numberOfLivingNeighbours == 3) {
 				return true;
 			}
 		}
