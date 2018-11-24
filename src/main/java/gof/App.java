@@ -7,7 +7,7 @@ public class App {
 
 	private Set<Point> livingCells;
 	
-	public Set<Point> calculate(Set<Point> livingCells) {
+	public Set<Point> calculateLivingCellsOfNextGeneration(Set<Point> livingCells) {
 		this.livingCells = livingCells;
 		Set<Point> livingCells_nextGeneration = new HashSet<Point>();
 		for (Point point: getSetOfPossibleLivingCells_nextGeneration()) {
