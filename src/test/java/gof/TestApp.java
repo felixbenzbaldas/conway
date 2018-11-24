@@ -15,10 +15,8 @@ public class TestApp {
 	public void underpopulation() throws Exception {
 		Set<Point> livingCells = new HashSet<Point>();
 		livingCells.add(new Point(1, 1));
-		
-		Set<Point> livingCells_nextGeneration = new HashSet<Point>();
-		
-		assertEquals(livingCells_nextGeneration, new App().calculate(livingCells));
+
+		assertFalse(new App().calculate(livingCells).contains(new Point(1,1)));
 	}
 	
 	@Test
@@ -28,12 +26,7 @@ public class TestApp {
 		livingCells.add(new Point(1, 1));
 		livingCells.add(new Point(1, 2));
 
-		Set<Point> livingCells_nextGeneration = new HashSet<Point>();
-		livingCells_nextGeneration.add(new Point(0, 1));
-		livingCells_nextGeneration.add(new Point(1, 1));
-		livingCells_nextGeneration.add(new Point(2, 1));
-		
-		assertEquals(livingCells_nextGeneration, new App().calculate(livingCells));
+		assertTrue(new App().calculate(livingCells).contains(new Point(1,1)));
 	}
 	
 	@Test
