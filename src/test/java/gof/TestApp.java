@@ -10,11 +10,6 @@ import org.junit.Test;
 
 public class TestApp {
 
-	static Set<Point> boardWithLivingCell = new HashSet<Point>();
-	static {
-		boardWithLivingCell.add(new Point(1,1));
-	}
-	
 	@Test
 	public void underpopulation() throws Exception {
 		Set<Point> livingCells = new HashSet<Point>();
