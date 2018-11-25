@@ -1,4 +1,4 @@
-package gof;
+package gol;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package gof;
+package gol;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +17,7 @@ public class App {
 		}
 		return livingCells_nextGeneration;
 	}
+	
 	private Set<Point> getSetOfPossibleLivingCells_nextGeneration() {
 		Set<Point> set = new HashSet<Point>();
 		for (Point point : livingCells) {
