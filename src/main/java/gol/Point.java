@@ -5,8 +5,8 @@ import java.util.Set;
 
 public class Point {
 	
-	final int x;
-	final int y;
+	private final int x;
+	private final int y;
 	
 	public Point(int x, int y) {
 		super();
