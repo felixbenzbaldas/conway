@@ -17,16 +17,20 @@ public class TestApp {
 	@Test
 	public void underpopulation() throws Exception {
 		createBoard();
-		setAlive(1,1);
+		
+						setAlive(1,1);
+		
 		testDead(1,1);
 	}
 	
 	@Test
 	public void survive() throws Exception {
 		createBoard();
-		setAlive(1, 0);
-		setAlive(1, 1);
-		setAlive(1, 2);
+		
+						setAlive(1, 0);
+						setAlive(1, 1);
+						setAlive(1, 2);
+		
 		testAlive(1,1);
 	}
 
@@ -44,9 +48,11 @@ public class TestApp {
 	@Test
 	public void birth() throws Exception {
 		createBoard();
+		
+						setAlive(1, 0);
 		setAlive(0, 1);
-		setAlive(1, 0);
-		setAlive(1, 2);
+						setAlive(1, 2);
+		
 		testAlive(1,1);
 	}
 	
