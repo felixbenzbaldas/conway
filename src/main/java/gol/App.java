@@ -45,12 +45,6 @@ public class App {
 	}
 	
 	private int getNumberOfLivingNeighbours(Point point) {
-		int sum = 0;
-		for (Point currentNeighbour: point.getNeighbours()) {
-			if (isAlive(currentNeighbour)) {
-				sum++;
-			}
-		}
-		return sum;
+		return (int) point.getNeighbours().stream().filter( p -> isAlive(p) ).count();
 	}
 }
