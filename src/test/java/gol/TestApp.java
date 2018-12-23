@@ -18,10 +18,19 @@ public class TestApp {
 	
 	@Test
 	public void underpopulation() throws Exception {
-		livingCells = new HashSet<Point>();
-		livingCells.add(new Point(1, 1));
-
+		createBoard();
+		setAlive(1,1);
+		
 		assertFalse(new App().calculateLivingCellsOfNextGeneration(livingCells).contains(new Point(1, 1)));
+	}
+	
+	
+	private void createBoard() {
+		livingCells = new HashSet<Point>();
+	}
+	
+	private void setAlive(int x, int y) {
+		livingCells.add(new Point(x, y));
 	}
 
 	@Test
