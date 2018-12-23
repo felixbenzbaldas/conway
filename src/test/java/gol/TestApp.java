@@ -32,24 +32,22 @@ public class TestApp {
 
 	@Test
 	public void overpopulation() throws Exception {
-		Set<Point> livingCells = new HashSet<Point>();
-		livingCells.add(new Point(0, 1));
-		livingCells.add(new Point(1, 0));
-		livingCells.add(new Point(1, 1));
-		livingCells.add(new Point(1, 2));
-		livingCells.add(new Point(2, 1));
-
-		assertFalse(new App().calculateLivingCellsOfNextGeneration(livingCells).contains(new Point(1, 1)));
+		createBoard();
+		setAlive(0, 1);
+		setAlive(1, 0);
+		setAlive(1, 1);
+		setAlive(1, 2);
+		setAlive(2, 1);
+		testDead(1,1);
 	}
 	
 	@Test
 	public void birth() throws Exception {
-		Set<Point> livingCells = new HashSet<Point>();
-		livingCells.add(new Point(0, 1));
-		livingCells.add(new Point(1, 0));
-		livingCells.add(new Point(1, 2));
-		
-		assertTrue(new App().calculateLivingCellsOfNextGeneration(livingCells).contains(new Point(1, 1)));
+		createBoard();
+		setAlive(0, 1);
+		setAlive(1, 0);
+		setAlive(1, 2);
+		testAlive(1,1);
 	}
 	
 	private void createBoard() {
