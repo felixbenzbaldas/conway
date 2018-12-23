@@ -33,11 +33,11 @@ public class TestApp {
 	@Test
 	public void overpopulation() throws Exception {
 		createBoard();
-		setAlive(0, 1);
-		setAlive(1, 0);
-		setAlive(1, 1);
-		setAlive(1, 2);
-		setAlive(2, 1);
+		
+						setAlive(1, 0);
+		setAlive(0, 1); setAlive(1, 1); setAlive(2, 1);
+						setAlive(1, 2);
+
 		testDead(1,1);
 	}
 	
