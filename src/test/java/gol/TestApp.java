@@ -20,7 +20,7 @@ public class TestApp {
 		
 						setAlive(1,1);
 		
-		testDead(1,1);
+		testDeadInNextGeneration(1,1);
 	}
 	
 	@Test
@@ -31,7 +31,7 @@ public class TestApp {
 						setAlive(1, 1);
 						setAlive(1, 2);
 		
-		testAlive(1,1);
+		testAliveInNextGeneration(1,1);
 	}
 
 	@Test
@@ -42,7 +42,7 @@ public class TestApp {
 		setAlive(0, 1); setAlive(1, 1); setAlive(2, 1);
 						setAlive(1, 2);
 
-		testDead(1,1);
+		testDeadInNextGeneration(1,1);
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ public class TestApp {
 		setAlive(0, 1);
 						setAlive(1, 2);
 		
-		testAlive(1,1);
+		testAliveInNextGeneration(1,1);
 	}
 	
 	private void createBoard() {
@@ -64,11 +64,11 @@ public class TestApp {
 		livingCells.add(new Point(x, y));
 	}
 	
-	private void testDead(int x, int y) {
+	private void testDeadInNextGeneration(int x, int y) {
 		assertFalse(new App().calculateLivingCellsOfNextGeneration(livingCells).contains(new Point(x, y)));
 	}
 	
-	private void testAlive(int x, int y) {
+	private void testAliveInNextGeneration(int x, int y) {
 		assertTrue(new App().calculateLivingCellsOfNextGeneration(livingCells).contains(new Point(1, 1)));
 	}
 }
