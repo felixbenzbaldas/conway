@@ -13,9 +13,12 @@ import gol.Point;
 
 public class TestApp {
 
+	
+	private Set<Point> livingCells;
+	
 	@Test
 	public void underpopulation() throws Exception {
-		Set<Point> livingCells = new HashSet<Point>();
+		livingCells = new HashSet<Point>();
 		livingCells.add(new Point(1, 1));
 
 		assertFalse(new App().calculateLivingCellsOfNextGeneration(livingCells).contains(new Point(1, 1)));
