@@ -69,6 +69,6 @@ public class TestApp {
 	}
 	
 	private void testAliveInNextGeneration(int x, int y) {
-		assertTrue(new App().calculateLivingCellsOfNextGeneration(livingCells).contains(new Point(1, 1)));
+		assertTrue(new App().calculateLivingCellsOfNextGeneration(livingCells).contains(new Point(x, y)));
 	}
 }
