@@ -12,11 +12,13 @@ public class Runner {
 	
 	private void run() throws InterruptedException {
 		board = new Board();
-		board.setAlive(1, 1);
-		
+								board.setAlive(1, 0);
+		board.setAlive(0, 1);	board.setAlive(1, 1); 	board.setAlive(2, 1);
+								board.setAlive(1, 2);
+
 		while (true) {
 			printBoard();
-			TimeUnit.MILLISECONDS.sleep(1000);
+			TimeUnit.MILLISECONDS.sleep(500);
 			board.stepToNextGeneration();
 		}
 	}
