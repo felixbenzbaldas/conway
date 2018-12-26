@@ -25,8 +25,8 @@ public class Runner {
 	
 	private void printBoard() {
 		System.out.println("=============================================================");
-		for (int row = 0; row < 20; row++) {
-			for (int column = 0; column < 20; column++) {
+		for (int row = -10; row < 10; row++) {
+			for (int column = -10; column < 10; column++) {
 				System.out.print((board.isAlive(row, column)) ? " X " : " - ");
 			}
 			System.out.println("");
