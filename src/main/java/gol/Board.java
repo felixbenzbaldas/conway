@@ -6,6 +6,7 @@ import java.util.Set;
 public class Board {
 
 	private Set<Point> livingCells;
+	private int width = Integer.MAX_VALUE - 1;
 	
 	public Board(Set<Point> livingCells) {
 		this.livingCells = livingCells;
@@ -24,7 +25,12 @@ public class Board {
 	private Set<Point> getSetOfPossibleLivingCells_nextGeneration() {
 		Set<Point> set = new HashSet<Point>();
 		for (Point point : livingCells) {
-			set.addAll(point.getNeighbours());
+			for ( Point neighbourPoint : point.getNeighbours()) {
+				if (Math.abs( neighbourPoint.x) < width &&
+						Math.abs( neighbourPoint.y) < width ) {
+					set.add(neighbourPoint);
+				}
+			}
 		}
 		return set;
 	}
