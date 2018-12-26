@@ -3,10 +3,20 @@ package gol;
 import java.util.concurrent.TimeUnit;
 
 public class Runner {
+	
 	public static void main(String[] args) throws InterruptedException {
+		new Runner().run();
+	}
+	
+	private void run() throws InterruptedException {
+		Board board = new Board();
+		board.setAlive(1, 1);
+		
 		while (true) {
-			System.out.println("[Board]");
+			System.out.println(board.isAlive(new Point(1, 1)));
 			TimeUnit.MILLISECONDS.sleep(100);
+			board.stepToNextGeneration();
+			
 		}
 	}
 }
