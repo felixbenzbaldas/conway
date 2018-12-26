@@ -3,16 +3,10 @@ package gol;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.Test;
 
-import gol.Board;
-import gol.Point;
-
 public class TestApp {
-	private Set<Point> livingCells;
+	private Board board;
 	
 	@Test
 	public void underpopulation() throws Exception {
@@ -57,18 +51,18 @@ public class TestApp {
 	}
 	
 	private void createBoard() {
-		livingCells = new HashSet<Point>();
+		board = new Board();
 	}
 	
 	private void setAlive(int x, int y) {
-		livingCells.add(new Point(x, y));
+		board.setAlive(x, y);
 	}
 	
 	private void testDeadInNextGeneration(int x, int y) {
-		assertFalse(new Board(livingCells).calculateLivingCellsOfNextGeneration().contains(new Point(x, y)));
+		assertFalse(board.calculateLivingCellsOfNextGeneration().contains(new Point(x, y)));
 	}
 	
 	private void testAliveInNextGeneration(int x, int y) {
-		assertTrue(new Board(livingCells).calculateLivingCellsOfNextGeneration().contains(new Point(x, y)));
+		assertTrue(board.calculateLivingCellsOfNextGeneration().contains(new Point(x, y)));
 	}
 }

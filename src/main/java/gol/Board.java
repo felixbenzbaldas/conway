@@ -8,8 +8,12 @@ public class Board {
 	private Set<Point> livingCells;
 	private int width = Integer.MAX_VALUE - 1;
 	
-	public Board(Set<Point> livingCells) {
-		this.livingCells = livingCells;
+	public Board() {
+		livingCells = new HashSet<Point>();
+	}
+	
+	public void setAlive(int x, int y) {
+		livingCells.add(new Point(x, y));
 	}
 
 	public Set<Point> calculateLivingCellsOfNextGeneration() {
