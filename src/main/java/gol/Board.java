@@ -16,7 +16,7 @@ public class Board {
 		livingCells.add(new Point(x, y));
 	}
 
-	public Set<Point> stepToNextGeneration() {
+	public void stepToNextGeneration() {
 		Set<Point> livingCells_nextGeneration = new HashSet<Point>();
 		for (Point point: getSetOfPossibleLivingCells_nextGeneration()) {
 			if (willBeAlive(point)) {
@@ -24,7 +24,6 @@ public class Board {
 			}
 		}
 		this.livingCells = livingCells_nextGeneration;
-		return livingCells_nextGeneration;
 	}
 	
 	private Set<Point> getSetOfPossibleLivingCells_nextGeneration() {
