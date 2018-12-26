@@ -16,13 +16,14 @@ public class Board {
 		livingCells.add(new Point(x, y));
 	}
 
-	public Set<Point> calculateLivingCellsOfNextGeneration() {
+	public Set<Point> stepToNextGeneration() {
 		Set<Point> livingCells_nextGeneration = new HashSet<Point>();
 		for (Point point: getSetOfPossibleLivingCells_nextGeneration()) {
 			if (willBeAlive(point)) {
 				livingCells_nextGeneration.add(point);
 			}
 		}
+		this.livingCells = livingCells_nextGeneration;
 		return livingCells_nextGeneration;
 	}
 	

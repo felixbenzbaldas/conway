@@ -59,10 +59,12 @@ public class TestApp {
 	}
 	
 	private void testDeadInNextGeneration(int x, int y) {
-		assertFalse(board.calculateLivingCellsOfNextGeneration().contains(new Point(x, y)));
+		board.stepToNextGeneration();
+		assertFalse(board.isAlive(new Point(x, y)));
 	}
 	
 	private void testAliveInNextGeneration(int x, int y) {
-		assertTrue(board.calculateLivingCellsOfNextGeneration().contains(new Point(x, y)));
+		board.stepToNextGeneration();
+		assertTrue(board.isAlive(new Point(x, y)));
 	}
 }
