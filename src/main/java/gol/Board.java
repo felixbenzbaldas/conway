@@ -3,12 +3,15 @@ package gol;
 import java.util.HashSet;
 import java.util.Set;
 
-public class App {
+public class Board {
 
 	private Set<Point> livingCells;
 	
-	public Set<Point> calculateLivingCellsOfNextGeneration(Set<Point> livingCells) {
+	public Board(Set<Point> livingCells) {
 		this.livingCells = livingCells;
+	}
+
+	public Set<Point> calculateLivingCellsOfNextGeneration() {
 		Set<Point> livingCells_nextGeneration = new HashSet<Point>();
 		for (Point point: getSetOfPossibleLivingCells_nextGeneration()) {
 			if (willBeAlive(point)) {
@@ -40,7 +43,7 @@ public class App {
 		return false;
 	}
 	
-	private boolean isAlive(Point point) {
+	public boolean isAlive(Point point) {
 		return livingCells.contains(point);
 	}
 	

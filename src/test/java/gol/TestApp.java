@@ -8,7 +8,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import gol.App;
+import gol.Board;
 import gol.Point;
 
 public class TestApp {
@@ -65,10 +65,10 @@ public class TestApp {
 	}
 	
 	private void testDeadInNextGeneration(int x, int y) {
-		assertFalse(new App().calculateLivingCellsOfNextGeneration(livingCells).contains(new Point(x, y)));
+		assertFalse(new Board(livingCells).calculateLivingCellsOfNextGeneration().contains(new Point(x, y)));
 	}
 	
 	private void testAliveInNextGeneration(int x, int y) {
-		assertTrue(new App().calculateLivingCellsOfNextGeneration(livingCells).contains(new Point(x, y)));
+		assertTrue(new Board(livingCells).calculateLivingCellsOfNextGeneration().contains(new Point(x, y)));
 	}
 }
