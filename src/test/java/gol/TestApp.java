@@ -60,11 +60,11 @@ public class TestApp {
 	
 	private void testDeadInNextGeneration(int x, int y) {
 		board.stepToNextGeneration();
-		assertFalse(board.isAlive(new Point(x, y)));
+		assertFalse(board.isAlive(x, y));
 	}
 	
 	private void testAliveInNextGeneration(int x, int y) {
 		board.stepToNextGeneration();
-		assertTrue(board.isAlive(new Point(x, y)));
+		assertTrue(board.isAlive(x, y));
 	}
 }

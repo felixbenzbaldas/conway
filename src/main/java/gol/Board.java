@@ -53,7 +53,11 @@ public class Board {
 		return false;
 	}
 	
-	public boolean isAlive(Point point) {
+	public boolean isAlive(int x, int y) {
+		return isAlive(new Point(x, y));
+	}
+	
+	private boolean isAlive(Point point) {
 		return livingCells.contains(point);
 	}
 	

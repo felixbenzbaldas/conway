@@ -13,10 +13,9 @@ public class Runner {
 		board.setAlive(1, 1);
 		
 		while (true) {
-			System.out.println(board.isAlive(new Point(1, 1)));
+			System.out.println(board.isAlive(1, 1));
 			TimeUnit.MILLISECONDS.sleep(100);
 			board.stepToNextGeneration();
-			
 		}
 	}
 }
