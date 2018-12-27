@@ -5,10 +5,10 @@ import java.util.Set;
 
 public class Point {
 	
-	public final int x;
-	public final int y;
+	public final long x;
+	public final long y;
 	
-	public Point(int x, int y) {
+	public Point(long x, long y) {
 		super();
 		this.x = x;
 		this.y = y;
@@ -27,15 +27,16 @@ public class Point {
 		return neighbours;
 	}
 	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + x;
-		result = prime * result + y;
+		result = prime * result + (int) (x ^ (x >>> 32));
+		result = prime * result + (int) (y ^ (y >>> 32));
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

@@ -54,7 +54,7 @@ public class TestApp {
 		board = new Board();
 	}
 	
-	private void setAlive(int x, int y) {
+	private void setAlive(long x, long y) {
 		board.setAlive(x, y);
 	}
 	
