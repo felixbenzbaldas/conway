@@ -3,8 +3,8 @@ package gol;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Function;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Board {
 
@@ -19,17 +19,11 @@ public class Board {
 	}
 
 	public void stepToNextGeneration() {
-		Set<Point> livingCells_nextGeneration = new HashSet<Point>();
-		for (Point point: getPossibleLivingCells_nextGeneration()) {
-			if (willBeAlive(point)) {
-				livingCells_nextGeneration.add(point);
-			}
-		}
-		this.livingCells = livingCells_nextGeneration;
+		this.livingCells = getPossibleLivingCells_nextGeneration().filter(point -> willBeAlive(point)).collect(Collectors.toSet());
 	}
 	
-	private Set<Point> getPossibleLivingCells_nextGeneration() {
-		return livingCells.stream().map(livingCell -> livingCell.getNeighbours()).flatMap(Function.identity()).collect(Collectors.toSet());
+	private Stream<Point> getPossibleLivingCells_nextGeneration() {
+		return livingCells.stream().map(livingCell -> livingCell.getNeighbours()).flatMap(Function.identity());
 	}
 	
 	private boolean willBeAlive(Point point) {
