@@ -1,7 +1,10 @@
 package gol;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 public class Point {
 	
@@ -15,16 +18,12 @@ public class Point {
 	}
 
 	public Set<Point> getNeighbours() {
-		Set<Point> neighbours = new HashSet<Point>();
-		neighbours.add(new Point(x - 1, y - 1));
-		neighbours.add(new Point(x - 1, y    ));
-		neighbours.add(new Point(x - 1, y + 1));
-		neighbours.add(new Point(x, y - 1));
-		neighbours.add(new Point(x, y + 1));
-		neighbours.add(new Point(x + 1, y - 1));
-		neighbours.add(new Point(x + 1, y    ));
-		neighbours.add(new Point(x + 1, y + 1));
-		return neighbours;
+		return LongStream.range(y - 1, y + 2).mapToObj(
+			y -> LongStream.range(x - 1, x + 2).mapToObj(x -> new Point(x, y))
+			)
+			.flatMap(Function.identity())
+			.filter(Predicate.isEqual(this).negate())
+			.collect(Collectors.toSet());
 	}
 	
 	
