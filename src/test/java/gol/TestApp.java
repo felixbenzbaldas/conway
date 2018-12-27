@@ -18,6 +18,15 @@ public class TestApp {
 	}
 	
 	@Test
+	public void underpopulation2() throws Exception {
+		createBoard();
+						setAlive(1, 0);
+						setAlive(1, 1);
+		
+		testDeadInNextGeneration(1, 1);
+	}
+	
+	@Test
 	public void survive() throws Exception {
 		createBoard();
 		
