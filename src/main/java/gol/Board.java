@@ -34,7 +34,7 @@ public class Board {
 	}
 	
 	private boolean willBeAlive(Point point) {
-		int livingNeighbours = getNumberOfLivingNeighbours(point);
+		long livingNeighbours = getNumberOfLivingNeighbours(point);
 		if (isAlive(point)) {
 			return livingNeighbours == 2 || livingNeighbours == 3;
 		} else {
@@ -50,7 +50,7 @@ public class Board {
 		return livingCells.contains(point);
 	}
 	
-	private int getNumberOfLivingNeighbours(Point point) {
-		return (int) point.getNeighbours().stream().filter( p -> isAlive(p) ).count();
+	private long getNumberOfLivingNeighbours(Point point) {
+		return point.getNeighbours().stream().filter( p -> isAlive(p) ).count();
 	}
 }
