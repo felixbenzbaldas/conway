@@ -34,17 +34,12 @@ public class Board {
 	}
 	
 	private boolean willBeAlive(Point point) {
-		int numberOfLivingNeighbours = getNumberOfLivingNeighbours(point);
+		int livingNeighbours = getNumberOfLivingNeighbours(point);
 		if (isAlive(point)) {
-			if (numberOfLivingNeighbours == 2 || numberOfLivingNeighbours == 3) {
-				return true;
-			}
+			return livingNeighbours == 2 || livingNeighbours == 3;
 		} else {
-			if (numberOfLivingNeighbours == 3) {
-				return true;
-			}
+			return livingNeighbours == 3;
 		}
-		return false;
 	}
 	
 	public boolean isAlive(long x, long y) {
