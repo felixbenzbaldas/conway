@@ -2,6 +2,7 @@ package gol;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -28,11 +29,7 @@ public class Board {
 	}
 	
 	private Set<Point> getPossibleLivingCells_nextGeneration() {
-		Set<Point> set = new HashSet<Point>();
-		for (Point point : livingCells) {
-			set.addAll(point.getNeighbours().collect(Collectors.toSet()));
-		}
-		return set;
+		return livingCells.stream().map(livingCell -> livingCell.getNeighbours()).flatMap(Function.identity()).collect(Collectors.toSet());
 	}
 	
 	private boolean willBeAlive(Point point) {
