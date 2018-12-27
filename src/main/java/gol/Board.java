@@ -2,6 +2,8 @@ package gol;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Board {
 
@@ -28,7 +30,7 @@ public class Board {
 	private Set<Point> getPossibleLivingCells_nextGeneration() {
 		Set<Point> set = new HashSet<Point>();
 		for (Point point : livingCells) {
-			set.addAll(point.getNeighbours());
+			set.addAll(point.getNeighbours().collect(Collectors.toSet()));
 		}
 		return set;
 	}
@@ -51,6 +53,6 @@ public class Board {
 	}
 	
 	private long getNumberOfLivingNeighbours(Point point) {
-		return point.getNeighbours().stream().filter( p -> isAlive(p) ).count();
+		return point.getNeighbours().filter( p -> isAlive(p) ).count();
 	}
 }

@@ -1,10 +1,9 @@
 package gol;
 
-import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 import java.util.stream.LongStream;
+import java.util.stream.Stream;
 
 public class Point {
 	
@@ -17,13 +16,12 @@ public class Point {
 		this.y = y;
 	}
 
-	public Set<Point> getNeighbours() {
+	public Stream<Point> getNeighbours() {
 		return LongStream.range(y - 1, y + 2).mapToObj(
 			y -> LongStream.range(x - 1, x + 2).mapToObj(x -> new Point(x, y))
 			)
 			.flatMap(Function.identity())
-			.filter(Predicate.isEqual(this).negate())
-			.collect(Collectors.toSet());
+			.filter(Predicate.isEqual(this).negate());
 	}
 	
 	
