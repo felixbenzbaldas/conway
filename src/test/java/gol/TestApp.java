@@ -12,7 +12,7 @@ public class TestApp {
 	public void underpopulation() throws Exception {
 		createBoard();
 		
-						setAlive(1,1);
+                       setAlive(1,1);
 		
 		testDeadInNextGeneration(1,1);
 	}
@@ -20,8 +20,9 @@ public class TestApp {
 	@Test
 	public void underpopulation2() throws Exception {
 		createBoard();
-						setAlive(1, 0);
-						setAlive(1, 1);
+		
+                       setAlive(1, 0);
+                       setAlive(1, 1);
 		
 		testDeadInNextGeneration(1, 1);
 	}
@@ -30,9 +31,9 @@ public class TestApp {
 	public void survive() throws Exception {
 		createBoard();
 		
-						setAlive(1, 0);
-						setAlive(1, 1);
-						setAlive(1, 2);
+                       setAlive(1, 0);
+                       setAlive(1, 1);
+                       setAlive(1, 2);
 		
 		testAliveInNextGeneration(1,1);
 	}
@@ -41,9 +42,9 @@ public class TestApp {
 	public void overpopulation() throws Exception {
 		createBoard();
 		
-						setAlive(1, 0);
-		setAlive(0, 1); setAlive(1, 1); setAlive(2, 1);
-						setAlive(1, 2);
+                       setAlive(1, 0);
+        setAlive(0, 1);setAlive(1, 1);setAlive(2, 1);
+                       setAlive(1, 2);
 
 		testDeadInNextGeneration(1,1);
 	}
@@ -52,9 +53,9 @@ public class TestApp {
 	public void birth() throws Exception {
 		createBoard();
 		
-						setAlive(1, 0);
-		setAlive(0, 1);
-						setAlive(1, 2);
+                       setAlive(1, 0);
+        setAlive(0, 1);
+                       setAlive(1, 2);
 		
 		testAliveInNextGeneration(1,1);
 	}
