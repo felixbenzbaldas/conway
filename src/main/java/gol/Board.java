@@ -23,7 +23,7 @@ public class Board {
 	}
 	
 	private Stream<Point> getPossibleLivingCells_nextGeneration() {
-		return livingCells.stream().map(livingCell -> livingCell.getNeighbours()).flatMap(Function.identity());
+		return livingCells.stream().map(livingCell -> livingCell.getNeighbours()).flatMap(Function.identity()).distinct();
 	}
 	
 	private boolean willBeAlive(Point point) {
