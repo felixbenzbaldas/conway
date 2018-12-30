@@ -44,6 +44,6 @@ public class Board {
 	}
 	
 	private long getNumberOfLivingNeighbours(Point point) {
-		return point.getNeighbours().filter( p -> isAlive(p) ).count();
+		return point.getNeighbours().filter( neighbour -> isAlive(neighbour) ).count();
 	}
 }
