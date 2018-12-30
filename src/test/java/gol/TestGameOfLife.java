@@ -12,9 +12,9 @@ public class TestGameOfLife {
 	public void underpopulation() throws Exception {
 		createBoard();
 		
-                       setAlive(1,1);
+                       setAlive(1, 1);
 		
-		testDeadInNextGeneration(1,1);
+		testDeadInNextGeneration(1, 1);
 	}
 	
 	@Test
@@ -35,7 +35,7 @@ public class TestGameOfLife {
                        setAlive(1, 1);
                        setAlive(1, 2);
 		
-		testAliveInNextGeneration(1,1);
+		testAliveInNextGeneration(1, 1);
 	}
 
 	@Test
@@ -46,7 +46,7 @@ public class TestGameOfLife {
         setAlive(0, 1);setAlive(1, 1);setAlive(2, 1);
                        setAlive(1, 2);
 
-		testDeadInNextGeneration(1,1);
+		testDeadInNextGeneration(1, 1);
 	}
 	
 	@Test
@@ -57,7 +57,7 @@ public class TestGameOfLife {
         setAlive(0, 1);
                        setAlive(1, 2);
 		
-		testAliveInNextGeneration(1,1);
+		testAliveInNextGeneration(1, 1);
 	}
 	
 	private void createBoard() {
