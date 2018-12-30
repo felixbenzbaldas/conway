@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class TestApp {
+public class TestGameOfLife {
 	private Board board;
 	
 	@Test
@@ -52,7 +52,7 @@ public class TestApp {
 	@Test
 	public void birth() throws Exception {
 		createBoard();
-		
+	
                        setAlive(1, 0);
         setAlive(0, 1);
                        setAlive(1, 2);
