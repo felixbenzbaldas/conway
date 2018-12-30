@@ -17,9 +17,9 @@ public class Board {
 	public void setAlive(long x, long y) {
 		livingCells.add(new Point(x, y));
 	}
-
+	
 	public void stepToNextGeneration() {
-		this.livingCells = getPossibleLivingCells_nextGeneration().filter(point -> willBeAlive(point)).collect(Collectors.toSet());
+		livingCells = getPossibleLivingCells_nextGeneration().filter(point -> willBeAlive(point)).collect(Collectors.toSet());
 	}
 	
 	private Stream<Point> getPossibleLivingCells_nextGeneration() {
